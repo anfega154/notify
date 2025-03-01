@@ -138,3 +138,45 @@ Flujo principal:
 •	Las capas de dominio no dependen de la infraestructura REST ni de WebSocket.
 •	La lógica de negocio es independiente y puede ser probada sin preocuparse por los detalles de la infraestructura.
 
+Arquitectura del Proyecto
+
+src/main/java/com/finanzas/notificaciones
+│
+├── application
+│   ├── usecase
+│   │   ├── EnviarNotificacionUseCase.java
+│   │   ├── SuscribirUsuarioUseCase.java
+│   │   └── ActualizarPreferenciasUseCase.java
+│
+├── domain
+│   ├── model
+│   │   ├── User.java
+│   │   ├── Notification.java
+│   │   ├── Subscription.java
+│   ├── repository
+│   │   ├── UserRepository.java
+│   │   ├── SubscriptionRepository.java
+│   │   └── NotificationRepository.java
+│   ├── service
+│   │   ├── NotificationService.java
+│   │   ├── SubscriptionService.java
+│
+├── infrastructure
+│   ├── config
+│   │   ├── WebSocketConfig.java
+│   │   ├── DatabaseConfig.java
+│   ├── websocket
+│   │   ├── WebSocketHandler.java
+│   │   ├── WebSocketSessionManager.java
+│   ├── externalapi
+│   │   ├── MarketDataClient.java
+│
+├── web
+│   ├── controller
+│   │   ├── UserController.java
+│   │   ├── NotificationController.java
+│   ├── dto
+│   │   ├── UserDTO.java
+│   │   ├── NotificationDTO.java
+│
+└── NotificacionesApplication.java
